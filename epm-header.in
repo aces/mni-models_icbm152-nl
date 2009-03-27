@@ -6,7 +6,5 @@
 %readme README
 %description mni-models non-linear symmetric icbm152 T1
 %version @VERSION@
-%requires netcdf
-%requires hdf5
 %requires minc
 %requires mni-autoreg
