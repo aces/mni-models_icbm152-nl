@@ -19,7 +19,9 @@ dist_pkgdata_DATA := \
 	$(MODEL_BASE)_$(PRIM_MODAL)_eye_mask.mnc.gz \
 	$(MODEL_BASE)_$(PRIM_MODAL)_mask.mnc.gz \
 	$(MODEL_BASE)_$(PRIM_MODAL)_mask.obj.gz \
-	$(MODEL_BASE)_$(PRIM_MODAL)_headmask.mnc.gz
+	$(MODEL_BASE)_$(PRIM_MODAL)_headmask.mnc.gz \
+        $(MODEL_BASE)_$(PRIM_MODAL)_vent.mnc.gz \
+        $(MODEL_BASE)_$(PRIM_MODAL)_vent.obj.gz
 
 # installed data data
 pkgdata_DATA := \
@@ -28,6 +30,8 @@ pkgdata_DATA := \
 	$(MODELS:=_mask.obj) \
 	$(MODELS:=_eye_mask.mnc) \
 	$(MODELS:=_headmask.mnc) \
+	$(MODELS:=_vent.mnc) \
+	$(MODELS:=_vent.obj) \
 	$(MODELS:=_16_blur.mnc) \
 	$(MODELS:=_16_mask.mnc) \
 	$(MODELS:=_2_blur.mnc) \

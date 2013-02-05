@@ -27,7 +27,8 @@ with mni_autoreg.
 	another mask (full head mask), required for nonlinear mode
      icbm_avg_152_t1_tal_nlin_symmetric_VI_eye_mask.mnc
         a mask of the eyes
-
+     icbm_avg_152_t1_tal_nlin_symmetric_VI_vent.mnc
+        a mask of the ventricles
 
 Reference:
 
