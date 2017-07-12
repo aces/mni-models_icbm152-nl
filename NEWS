@@ -1,7 +1,8 @@
         New in Release 1.2
 
-* trimmed down installation (no more blurred files and .gz files)
-* converted .mnc files to minc2 format
+* Trimmed down installation (no more blurred files and .gz files)
+* Converted .mnc files to minc2 format
+* Added Cerebellum_Ventricles_SubCortical_Mask for CIVET
 
         New in Release 1.1
 

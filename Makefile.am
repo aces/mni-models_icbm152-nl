@@ -21,7 +21,8 @@ noinst_DATA := \
 	$(MODEL_BASE)_$(PRIM_MODAL)_mask.obj.gz \
 	$(MODEL_BASE)_$(PRIM_MODAL)_headmask.mnc.gz \
         $(MODEL_BASE)_$(PRIM_MODAL)_vent.mnc.gz \
-        $(MODEL_BASE)_$(PRIM_MODAL)_vent.obj.gz
+        $(MODEL_BASE)_$(PRIM_MODAL)_vent.obj.gz \
+	Cerebellum_Ventricles_SubCortical_Mask-VI.mnc.gz
 
 # installed data data
 pkgdata_DATA := \
@@ -31,7 +32,8 @@ pkgdata_DATA := \
 	$(MODELS:=_eye_mask.mnc) \
 	$(MODELS:=_headmask.mnc) \
 	$(MODELS:=_vent.mnc) \
-	$(MODELS:=_vent.obj)
+	$(MODELS:=_vent.obj) \
+	Cerebellum_Ventricles_SubCortical_Mask-VI.mnc
 
 EXTRA_DIST = $(noinst_DATA) $(m4_files) \
 	epm-header.in
