@@ -1,4 +1,10 @@
+        New in Release 1.2
+
+* trimmed down installation (no more blurred files and .gz files)
+* converted .mnc files to minc2 format
+
         New in Release 1.1
+
 * Added an .obj mask for the ventricles
 
         New in Release 1.0

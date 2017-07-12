@@ -1,3 +1,7 @@
+2017-07-12  Claude Lepage <claude@bic.mni.mcgill.ca>
+    * trimmed down installation (no more blurred files and .gz files)
+    * converted .mnc files to minc2 format
+
 2013-02-05  Claude Lepage <claude@bic.mni.mcgill.ca>
     * Added an .obj mask for the ventricles
 

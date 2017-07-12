@@ -14,7 +14,7 @@ MODELS := $(MODEL_BASE)_$(PRIM_MODAL)
 DATE_STAMP := `date +%D-%T`
 
 # package data
-dist_pkgdata_DATA := \
+noinst_DATA := \
 	$(MODELS:=.mnc.gz) \
 	$(MODEL_BASE)_$(PRIM_MODAL)_eye_mask.mnc.gz \
 	$(MODEL_BASE)_$(PRIM_MODAL)_mask.mnc.gz \
@@ -31,20 +31,9 @@ pkgdata_DATA := \
 	$(MODELS:=_eye_mask.mnc) \
 	$(MODELS:=_headmask.mnc) \
 	$(MODELS:=_vent.mnc) \
-	$(MODELS:=_vent.obj) \
-	$(MODELS:=_16_blur.mnc) \
-	$(MODELS:=_16_mask.mnc) \
-	$(MODELS:=_2_blur.mnc) \
-	$(MODELS:=_2_dxyz.mnc) \
-	$(MODELS:=_2_mask.mnc) \
-	$(MODELS:=_4_blur.mnc) \
-	$(MODELS:=_4_dxyz.mnc) \
-	$(MODELS:=_4_mask.mnc) \
-	$(MODELS:=_8_blur.mnc) \
-	$(MODELS:=_8_dxyz.mnc) \
-	$(MODELS:=_8_mask.mnc)
+	$(MODELS:=_vent.obj)
 
-EXTRA_DIST = $(m4_files) \
+EXTRA_DIST = $(noinst_DATA) $(m4_files) \
 	epm-header.in
 
 m4_files = local_m4/ac_prog_gzip.m4 \
@@ -57,27 +46,16 @@ CLEANFILES = $(pkgdata_DATA) $(MODELS:=.mnc)
 %: %.gz
 	$(gzip) -d -c $< > $@
 
-all: $(dist_pkgdata_DATA:.gz=) $(DATE)
-	for i in $(MODELS); \
-	do \
-		echo "Doing $$i"; \
-		for m in mask headmask; \
-		do \
-			echo "Checking for $$i\_$$m.mnc"; \
-			if [ ! -e $$i\_$$m.mnc ]; \
-			then \
-				ln -s $(MODEL_BASE)_$(PRIM_MODAL)_$$m.mnc $$i\_$$m.mnc; \
-			fi \
-		done; \
-      $(make_model) $$i; \
-	done
+all: $(noinst_DATA:.gz=) $(DATE)
 	for i in $(pkgdata_DATA); \
-   do \
-      echo "Adding mni-model header to $$i"; \
-      minc_modify_header \
-			-sinsert mni-model:package=$(PACKAGE) \
-			-sinsert mni-model:version=$(VERSION) \
-			-sinsert mni-model:compile-date=$(DATE_STAMP) \
-			-sinsert mni-model:compile-user=$$USER \
-			$$i; \
-   done
+	do \
+	  if [ $${i: -4} == ".mnc" ]; then \
+            echo "Adding mni-model header to $$i"; \
+            minc_modify_header \
+			  -sinsert mni-model:package=$(PACKAGE) \
+			  -sinsert mni-model:version=$(VERSION) \
+			  -sinsert mni-model:compile-date=$(DATE_STAMP) \
+			  -sinsert mni-model:compile-user=$$USER \
+			  $$i; \
+	  fi \
+        done
